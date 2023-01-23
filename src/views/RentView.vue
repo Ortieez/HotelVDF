@@ -1,12 +1,36 @@
-<script setup lang="ts">
+<script lang="ts">
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
+
+let data = await fetch("http://localhost/vcvdf/server.php");
+let result = await data.json();
+
+let headers = []
+
+for (let key in result) {
+  headers.push(key);
+}
+
+let dataHere = result[headers[2]];
+
+export default {
+  name: "RestaurantView",
+  components: {
+    HeroStaticComponent,
+    HeadingComponent,
+  },
+  data() {
+    return {
+      dataHere,
+    };
+  },
+};
 </script>
 
 <template>
   <HeroStaticComponent
-    title="Pronájem prostor"
-    source="../src/assets/hero/pronajem.jpg"
+    title="Pronájemprostor"
+    source="@/assets/hero/pronajem.jpg"
     color="blue"
   />
   <div class="basic__text">
@@ -28,21 +52,21 @@ import HeadingComponent from "@/components/HeadingComponent.vue";
   <HeadingComponent text="Cena Pronájmu podle místností" color="blue" />
   <HeadingComponent text="Posluchárna" color="blue" />
   <div class="basic__text">
-    <p class="center">1.320 Kč/den při <b>vícedenním pronájmu</b></p>
-    <p class="center">300 Kč/hodina při <b>jednodenním pronájmu</b></p>
+    <p class="center">{{ dataHere[0] }} Kč/den při <b>vícedenním pronájmu</b></p>
+    <p class="center">{{ dataHere[1] }} Kč/hodina při <b>jednodenním pronájmu</b></p>
   </div>
   <HeadingComponent text="Počítačová učebna" color="blue" />
   <div class="basic__text">
-    <p class="center">1.320 Kč/den při <b>vícedenním pronájmu</b></p>
-    <p class="center">300 Kč/hodina při <b>jednodenním pronájmu</b></p>
+    <p class="center">{{ dataHere[2] }} Kč/den při <b>vícedenním pronájmu</b></p>
+    <p class="center">{{ dataHere[3] }} Kč/hodina při <b>jednodenním pronájmu</b></p>
   </div>
   <HeadingComponent text="Odborná učebna" color="blue" />
   <div class="basic__text">
-    <p class="center">480 Kč/den</p>
+    <p class="center">{{ dataHere[4] }} Kč/den</p>
   </div>
   <HeadingComponent text="Zasedací místnost" color="blue" />
   <div class="basic__text">
-    <p class="center">480 Kč/den</p>
+    <p class="center">{{ dataHere[5] }} Kč/den</p>
     <p class="center">
       Na tyto akce zajistíme dle objednávky malé pohoštění nebo oběd.
     </p>

@@ -26,9 +26,41 @@ export default {
 <template>
   <div>
     <div class="heroSection">
-      <img :src="source" alt="Obrázek pro momentální sekci" />
+      <img
+        v-if="title == 'Ubytování'"
+        src="@/assets/hero/ubytování.jpg"
+        alt="Obrázek pro momentální sekci"
+      />
+      <img
+        v-if="title == 'Kontakty'"
+        src="@/assets/hero/kontakty.jpg"
+        alt="Obrázek pro momentální sekci"
+      />
+      <img
+        v-if="title == 'Fotogalerie'"
+        src="@/assets/hero/fotogalerie.jpg"
+        alt="Obrázek pro momentální sekci"
+      />
+      <img
+        v-if="title == 'Stránka nenalezena'"
+        src="@/assets/hero/nenalezeno.jpg"
+        alt="Obrázek pro momentální sekci"
+      />
+      <img
+        v-if="title == 'Pronájemprostor'"
+        src="@/assets/hero/pronajem.jpg"
+        alt="Obrázek pro momentální sekci"
+      />
+      <img
+        v-if="title == 'Restaurace'"
+        src="@/assets/hero/restaurace.jpg"
+        alt="Obrázek pro momentální sekci"
+      />
       <div class="heroText">
-        <h1 :color="color">{{ title }}</h1>
+        <h1 :color="color" v-if="title != 'Pronájemprostor'">{{ title }}</h1>
+        <h1 :color="color" v-if="title == 'Pronájemprostor'">
+          PRONÁJEM PROSTOR
+        </h1>
         <img
           v-if="poskytujeme"
           class="heroScroll"

@@ -1,33 +1,54 @@
-<script setup lang="ts">
+<script lang="ts">
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 import MapComponent from "@/components/MapComponent.vue";
+
+let data = await fetch("http://localhost/vcvdf/server.php");
+let result = await data.json();
+
+let headers = []
+
+for (let key in result) {
+  headers.push(key);
+}
+
+let zodpovednaOsoba = result[headers[3]];
+let contacts = [result[headers[4]][0], result[headers[5]][0], result[headers[6]][0], result[headers[7]][0]];
+console.log(contacts);
+
+export default {
+  name: "ContactView",
+  components: {
+    HeroStaticComponent,
+    HeadingComponent,
+    MapComponent
+  },
+  data() {
+    return {
+      zodpovednaOsoba,
+      contacts
+    };
+  },
+};
 </script>
 
 <template>
-  <HeroStaticComponent
-    title="Kontakty"
-    source="../src/assets/hero/kontaky.jpg"
-    color="orange"
-    :poskytujeme="false"
-  />
+  <HeroStaticComponent title="Kontakty" source="@/assets/hero/kontakty.jpg" color="orange" :poskytujeme="false" />
   <div class="basic__text">
     <HeadingComponent text="Adresa Vzdělávacího střediska" color="orange" />
     <p>Karlova 3317, 407 47 Varnsdorf</p>
-    <p>zodpovědná osoba: Petra Sedláčková</p>
+    <p>zodpovědná osoba: {{ zodpovednaOsoba[0] }}</p>
     <p>
       e-mail:
-      <a href="mailto:petra.sedlackova@skolavdf.cz"
-        >petra.sedlackova@skolavdf.cz</a
-      >
+      <a :href="'mailto:' + zodpovednaOsoba[1]">{{ zodpovednaOsoba[1] }}</a>
     </p>
   </div>
   <MapComponent :header="false" />
   <HeadingComponent text="Telefonní Čísla" color="orange" />
   <div class="basic__text">
-    <p><b>Kancelář</b> - <a href="tel:739 418 147">739 418 147</a></p>
-    <p><b>Recepce</b> - <a href="tel:775 475 549">775 475 549</a></p>
-    <p><b>Pevná</b> - <a href="tel:412 331 160">412 331 160</a></p>
+    <p><b>Kancelář</b> - <a :href="'tel:' + contacts[2]">{{ contacts[2] }}</a></p>
+    <p><b>Recepce</b> - <a :href="'tel:' + contacts[0]">{{ contacts[0] }}</a></p>
+    <p><b>Pevná</b> - <a :href="'tel:' + contacts[1]">{{ contacts[1]  }}</a></p>
   </div>
   <HeadingComponent text="Fakturační adresa" color="orange" />
   <div class="basic__text">

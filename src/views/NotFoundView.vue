@@ -5,7 +5,7 @@ import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 <template>
   <HeroStaticComponent
     title="Stránka nenalezena"
-    source="../src/assets/hero/nenalezeno.jpg"
+    source="@/assets/hero/nenalezeno.jpg"
     color="orange"
     :poskytujeme="false"
   />

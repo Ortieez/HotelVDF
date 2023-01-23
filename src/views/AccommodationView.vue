@@ -1,12 +1,36 @@
-<script setup lang="ts">
+<script lang="ts">
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
+
+let data = await fetch("http://localhost/vcvdf/server.php");
+let result = await data.json();
+
+let headers = []
+
+for (let key in result) {
+  headers.push(key);
+}
+
+let dataHere = result[headers[0]];
+
+export default {
+  name: "AccommodationView",
+  components: {
+    HeroStaticComponent,
+    HeadingComponent,
+  },
+  data() {
+    return {
+      dataHere,
+    };
+  },
+};
 </script>
 
 <template>
   <HeroStaticComponent
     title="Ubytování"
-    source="../src/assets/hero/ubytování.jpg"
+    source="@/assets/hero/ubytování.jpg"
     color="orange"
   />
   <div class="basic__text">
@@ -24,8 +48,8 @@ import HeadingComponent from "@/components/HeadingComponent.vue";
   </div>
   <HeadingComponent text="Cena ubytování na osobu" color="orange" />
   <div class="basic__text">
-    <p>Noc - 460,- Kč <b>bez snídaně</b></p>
-    <p>Noc - 560,- Kč <b>bez snídaně</b></p>
+    <p>Noc - {{ dataHere[0] }},- Kč <b>bez snídaně</b></p>
+    <p>Noc - {{ dataHere[1]  }},- Kč <b>bez snídaně</b></p>
     <p class="center">
       Slevy individuální - skupiny,<br />
       dlouhodobé pobyty.

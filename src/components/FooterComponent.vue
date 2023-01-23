@@ -1,3 +1,26 @@
+<script lang="ts">
+let data = await fetch("http://localhost/vcvdf/server.php");
+let result = await data.json();
+
+let headers = []
+
+for (let key in result) {
+  headers.push(key);
+}
+
+let contacts = [result[headers[4]][0], result[headers[5]][0], result[headers[6]][0], result[headers[7]][0]];
+console.log(contacts);
+
+export default {
+  name: "FooterComponent",
+  data() {
+    return {
+      contacts
+    };
+  },
+};
+</script>
+
 <template>
   <footer class="footer">
     <div class="footer__head">
@@ -6,16 +29,16 @@
     </div>
     <div class="footer__contacts">
       <p>
-        Recepce: <b><a href="tel:775 475 549">775 475 549</a></b>
+        Recepce: <b><a :href="'tel:' + contacts[0]">{{ contacts[0] }}</a></b>
       </p>
       <p>
-        Pevná linka: <b><a href="tel:412 331 160">412 331 160</a></b>
+        Pevná linka: <b><a :href="'tel:' + contacts[1]">{{ contacts[1] }}</a></b>
       </p>
       <p>
-        Restaurace: <b><a href="tel:739 096 172">739 096 172</a></b>
+        Restaurace: <b><a :href="'tel:' + contacts[2]">{{ contacts[2] }}</a></b>
       </p>
       <p>
-        Kancelář: <b><a href="tel:739 418 147">739 418 147</a></b>
+        Kancelář: <b><a :href="'tel:' + contacts[3]">{{ contacts[3] }}</a></b>
       </p>
       <br />
       <a href="mailto:petra.sedlackova@skolavdf.cz" class="email"

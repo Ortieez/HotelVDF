@@ -1,12 +1,36 @@
-<script setup lang="ts">
+<script lang="ts">
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
+
+let data = await fetch("http://localhost/vcvdf/server.php");
+let result = await data.json();
+
+let headers = []
+
+for (let key in result) {
+  headers.push(key);
+}
+
+let dataHere = result[headers[1]];
+
+export default {
+  name: "RestaurantView",
+  components: {
+    HeroStaticComponent,
+    HeadingComponent,
+  },
+  data() {
+    return {
+      dataHere,
+    };
+  },
+};
 </script>
 
 <template>
   <HeroStaticComponent
     title="Restaurace"
-    source="../src/assets/hero/restaurace.jpg"
+    source="@/assets/hero/restaurace.jpg"
     color="green"
   />
   <div class="basic__text">
@@ -19,6 +43,6 @@ import HeadingComponent from "@/components/HeadingComponent.vue";
   </div>
   <HeadingComponent text="Cena Menu" color="green" />
   <div class="basic__text">
-    <p class="center">95,- Kč (<b>včetně polévky</b>)</p>
+    <p class="center">{{ dataHere[0] }},- Kč (<b>včetně polévky</b>)</p>
   </div>
 </template>
