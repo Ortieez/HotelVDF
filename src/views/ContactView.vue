@@ -3,37 +3,56 @@ import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 import MapComponent from "@/components/MapComponent.vue";
 
-let data = await fetch("http://localhost/vcvdf/server.php");
-let result = await data.json();
+async function getData() {
+  let data = await fetch("http://localhost/vcvdf/server.php");
+  let result = await data.json();
 
-let headers = []
+  let headers = [];
 
-for (let key in result) {
-  headers.push(key);
+  for (let key in result) {
+    headers.push(key);
+  }
+
+  let zodpovednaOsoba = result[headers[3]];
+  let contacts = [
+    result[headers[4]][0],
+    result[headers[5]][0],
+    result[headers[6]][0],
+    result[headers[7]][0],
+  ];
+
+  return [zodpovednaOsoba, contacts];
 }
-
-let zodpovednaOsoba = result[headers[3]];
-let contacts = [result[headers[4]][0], result[headers[5]][0], result[headers[6]][0], result[headers[7]][0]];
-console.log(contacts);
 
 export default {
   name: "ContactView",
   components: {
     HeroStaticComponent,
     HeadingComponent,
-    MapComponent
+    MapComponent,
   },
   data() {
     return {
-      zodpovednaOsoba,
-      contacts
+      zodpovednaOsoba: [],
+      contacts: [],
     };
+  },
+  mounted() {
+    getData().then((data) => {
+      this.zodpovednaOsoba = data[0];
+      this.contacts = data[1];
+    });
   },
 };
 </script>
 
 <template>
-  <HeroStaticComponent title="Kontakty" source="@/assets/hero/kontakty.jpg" color="orange" :poskytujeme="false" />
+  <HeroStaticComponent
+    title="Kontakty"
+    source="@/assets/hero/kontakty.jpg"
+    color="orange"
+    :poskytujeme="false"
+  />
   <div class="basic__text">
     <HeadingComponent text="Adresa Vzdělávacího střediska" color="orange" />
     <p>Karlova 3317, 407 47 Varnsdorf</p>
@@ -46,9 +65,15 @@ export default {
   <MapComponent :header="false" />
   <HeadingComponent text="Telefonní Čísla" color="orange" />
   <div class="basic__text">
-    <p><b>Kancelář</b> - <a :href="'tel:' + contacts[2]">{{ contacts[2] }}</a></p>
-    <p><b>Recepce</b> - <a :href="'tel:' + contacts[0]">{{ contacts[0] }}</a></p>
-    <p><b>Pevná</b> - <a :href="'tel:' + contacts[1]">{{ contacts[1]  }}</a></p>
+    <p>
+      <b>Kancelář</b> - <a :href="'tel:' + contacts[2]">{{ contacts[2] }}</a>
+    </p>
+    <p>
+      <b>Recepce</b> - <a :href="'tel:' + contacts[0]">{{ contacts[0] }}</a>
+    </p>
+    <p>
+      <b>Pevná</b> - <a :href="'tel:' + contacts[1]">{{ contacts[1] }}</a>
+    </p>
   </div>
   <HeadingComponent text="Fakturační adresa" color="orange" />
   <div class="basic__text">

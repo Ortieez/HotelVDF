@@ -17,7 +17,6 @@ import SeventhImage from "@/assets/photogallery/VS-posluchárna03.jpg";
 import EighthImage from "@/assets/photogallery/VS-raut03.jpg";
 import NinthImage from "@/assets/photogallery/VS-recepce.jpg";
 
-
 export default {
   components: {
     Lightgallery,
@@ -34,13 +33,19 @@ export default {
       SixthImage,
       SeventhImage,
       EighthImage,
-      NinthImage,]
+      NinthImage,
+    ],
   }),
 };
 </script>
 
 <template>
-  <HeroStaticComponent title="Fotogalerie" source="@/assets/hero/fotogalerie.jpg" color="orange" :poskytujeme="false" />
+  <HeroStaticComponent
+    title="Fotogalerie"
+    source="@/assets/hero/fotogalerie.jpg"
+    color="orange"
+    :poskytujeme="false"
+  />
   <center class="gallery">
     <lightgallery :settings="{ speed: 500, plugins: plugins }">
       <a :href="Images[0]">

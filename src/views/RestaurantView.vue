@@ -2,16 +2,20 @@
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 
-let data = await fetch("http://localhost/vcvdf/server.php");
-let result = await data.json();
+async function getData() {
+  let data = await fetch("http://localhost/vcvdf/server.php");
+  let result = await data.json();
 
-let headers = []
+  let headers = [];
 
-for (let key in result) {
-  headers.push(key);
+  for (let key in result) {
+    headers.push(key);
+  }
+
+  let dataHere = result[headers[1]];
+
+  return dataHere;
 }
-
-let dataHere = result[headers[1]];
 
 export default {
   name: "RestaurantView",
@@ -21,8 +25,13 @@ export default {
   },
   data() {
     return {
-      dataHere,
+      dataHere: [],
     };
+  },
+  mounted() {
+    getData().then((data) => {
+      this.dataHere = data;
+    });
   },
 };
 </script>

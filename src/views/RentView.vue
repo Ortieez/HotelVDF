@@ -2,16 +2,20 @@
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 
-let data = await fetch("http://localhost/vcvdf/server.php");
-let result = await data.json();
+async function getData() {
+  let data = await fetch("http://localhost/vcvdf/server.php");
+  let result = await data.json();
 
-let headers = []
+  let headers = [];
 
-for (let key in result) {
-  headers.push(key);
+  for (let key in result) {
+    headers.push(key);
+  }
+
+  let dataHere = result[headers[2]];
+
+  return dataHere;
 }
-
-let dataHere = result[headers[2]];
 
 export default {
   name: "RestaurantView",
@@ -21,8 +25,13 @@ export default {
   },
   data() {
     return {
-      dataHere,
+      dataHere: [],
     };
+  },
+  mounted() {
+    getData().then((data) => {
+      this.dataHere = data;
+    });
   },
 };
 </script>
@@ -52,13 +61,21 @@ export default {
   <HeadingComponent text="Cena Pronájmu podle místností" color="blue" />
   <HeadingComponent text="Posluchárna" color="blue" />
   <div class="basic__text">
-    <p class="center">{{ dataHere[0] }} Kč/den při <b>vícedenním pronájmu</b></p>
-    <p class="center">{{ dataHere[1] }} Kč/hodina při <b>jednodenním pronájmu</b></p>
+    <p class="center">
+      {{ dataHere[0] }} Kč/den při <b>vícedenním pronájmu</b>
+    </p>
+    <p class="center">
+      {{ dataHere[1] }} Kč/hodina při <b>jednodenním pronájmu</b>
+    </p>
   </div>
   <HeadingComponent text="Počítačová učebna" color="blue" />
   <div class="basic__text">
-    <p class="center">{{ dataHere[2] }} Kč/den při <b>vícedenním pronájmu</b></p>
-    <p class="center">{{ dataHere[3] }} Kč/hodina při <b>jednodenním pronájmu</b></p>
+    <p class="center">
+      {{ dataHere[2] }} Kč/den při <b>vícedenním pronájmu</b>
+    </p>
+    <p class="center">
+      {{ dataHere[3] }} Kč/hodina při <b>jednodenním pronájmu</b>
+    </p>
   </div>
   <HeadingComponent text="Odborná učebna" color="blue" />
   <div class="basic__text">

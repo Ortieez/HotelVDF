@@ -35,6 +35,11 @@ const router = createRouter({
       component: () => import("../views/GalleryView.vue"),
     },
     {
+      path: "/upload",
+      name: "Nahrání CSV",
+      component: () => import("../views/UploadView.vue"),
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "404",
       component: () => import("../views/NotFoundView.vue"),

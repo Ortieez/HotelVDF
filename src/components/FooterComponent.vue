@@ -2,20 +2,24 @@
 let data = await fetch("http://localhost/vcvdf/server.php");
 let result = await data.json();
 
-let headers = []
+let headers = [];
 
 for (let key in result) {
   headers.push(key);
 }
 
-let contacts = [result[headers[4]][0], result[headers[5]][0], result[headers[6]][0], result[headers[7]][0]];
-console.log(contacts);
+let contacts = [
+  result[headers[4]][0],
+  result[headers[5]][0],
+  result[headers[6]][0],
+  result[headers[7]][0],
+];
 
 export default {
   name: "FooterComponent",
   data() {
     return {
-      contacts
+      contacts,
     };
   },
 };
@@ -29,16 +33,28 @@ export default {
     </div>
     <div class="footer__contacts">
       <p>
-        Recepce: <b><a :href="'tel:' + contacts[0]">{{ contacts[0] }}</a></b>
+        Recepce:
+        <b
+          ><a :href="'tel:' + contacts[0]">{{ contacts[0] }}</a></b
+        >
       </p>
       <p>
-        Pevná linka: <b><a :href="'tel:' + contacts[1]">{{ contacts[1] }}</a></b>
+        Pevná linka:
+        <b
+          ><a :href="'tel:' + contacts[1]">{{ contacts[1] }}</a></b
+        >
       </p>
       <p>
-        Restaurace: <b><a :href="'tel:' + contacts[2]">{{ contacts[2] }}</a></b>
+        Restaurace:
+        <b
+          ><a :href="'tel:' + contacts[2]">{{ contacts[2] }}</a></b
+        >
       </p>
       <p>
-        Kancelář: <b><a :href="'tel:' + contacts[3]">{{ contacts[3] }}</a></b>
+        Kancelář:
+        <b
+          ><a :href="'tel:' + contacts[3]">{{ contacts[3] }}</a></b
+        >
       </p>
       <br />
       <a href="mailto:petra.sedlackova@skolavdf.cz" class="email"

@@ -27,7 +27,7 @@ export default {
   <div>
     <div class="heroSection">
       <img
-        v-if="title == 'Ubytování'"
+        v-if="title == 'Ubytování' || title == 'Nahrání Souborů'"
         src="@/assets/hero/ubytování.jpg"
         alt="Obrázek pro momentální sekci"
       />

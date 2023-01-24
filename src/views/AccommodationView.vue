@@ -2,16 +2,20 @@
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 
-let data = await fetch("http://localhost/vcvdf/server.php");
-let result = await data.json();
+async function getData() {
+  let data = await fetch("http://localhost/vcvdf/server.php");
+  let result = await data.json();
 
-let headers = []
+  let headers = [];
 
-for (let key in result) {
-  headers.push(key);
+  for (let key in result) {
+    headers.push(key);
+  }
+
+  let dataHere = result[headers[0]];
+
+  return dataHere;
 }
-
-let dataHere = result[headers[0]];
 
 export default {
   name: "AccommodationView",
@@ -21,8 +25,13 @@ export default {
   },
   data() {
     return {
-      dataHere,
+      dataHere: [],
     };
+  },
+  mounted() {
+    getData().then((data) => {
+      this.dataHere = data;
+    });
   },
 };
 </script>
@@ -49,7 +58,7 @@ export default {
   <HeadingComponent text="Cena ubytování na osobu" color="orange" />
   <div class="basic__text">
     <p>Noc - {{ dataHere[0] }},- Kč <b>bez snídaně</b></p>
-    <p>Noc - {{ dataHere[1]  }},- Kč <b>bez snídaně</b></p>
+    <p>Noc - {{ dataHere[1] }},- Kč <b>bez snídaně</b></p>
     <p class="center">
       Slevy individuální - skupiny,<br />
       dlouhodobé pobyty.
