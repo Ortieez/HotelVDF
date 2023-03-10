@@ -39,7 +39,7 @@ export default {
 <template>
   <HeroStaticComponent
     title="Restaurace"
-    source="@/assets/hero/restaurace.jpg"
+    source="@/assets/hero/VSrestaurace01.jpg"
     color="green"
   />
   <div class="basic__text">
