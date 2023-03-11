@@ -11,11 +11,10 @@ import MapComponent from "@/components/MapComponent.vue";
     </div>
     <div class="home__long-text">
       <p>
-        Nabízíme Vám jen ty <b>nejkvalitnější</b> služby v daném oboru.
-        Neváhejte a využijte těchto služeb, které realizujeme v rámci vzdělávání
-        našich žáků. Náš personál je Vám vždy <b>plně k dispozici</b>. Naší
-        předností je neustálé zkvalitňování a vylepšování námi nabízených
-        služeb. Důkazem stále vzrůstající počet spokojených zákazníků.
+        Vyšší odborné školy, Střední průmyslové školy a Střední odborné školy ve Varnsdorfu se věnuje
+        především oboru gastronomie a hotelnictví. Nabízíme Vám kvalitní služby v daném oboru, které
+        realizujeme v rámci vzdělávání našich žáků. Naší předností je neustálé zkvalitňování a vylepšování
+        námi nabízených služeb. Důkazem je stále vzrůstající počet spokojených zákazníků.
       </p>
     </div>
     <MapComponent />

@@ -1,27 +1,6 @@
 <script lang="ts">
-let data = await fetch("http://localhost/vcvdf/server.php");
-let result = await data.json();
-
-let headers = [];
-
-for (let key in result) {
-  headers.push(key);
-}
-
-let contacts = [
-  result[headers[4]][0],
-  result[headers[5]][0],
-  result[headers[6]][0],
-  result[headers[7]][0],
-];
-
 export default {
   name: "FooterComponent",
-  data() {
-    return {
-      contacts,
-    };
-  },
 };
 </script>
 
@@ -35,30 +14,27 @@ export default {
       <p>
         Recepce:
         <b
-          ><a :href="'tel:' + contacts[0]">{{ contacts[0] }}</a></b
-        >
-      </p>
-      <p>
-        Pevná linka:
-        <b
-          ><a :href="'tel:' + contacts[1]">{{ contacts[1] }}</a></b
+          ><a :href="'tel:+420775475549'">+420 775 475 549</a></b
         >
       </p>
       <p>
         Restaurace:
         <b
-          ><a :href="'tel:' + contacts[2]">{{ contacts[2] }}</a></b
+          ><a :href="'tel:+420739096172'">+420 739 096 172</a></b
         >
       </p>
       <p>
         Kancelář:
         <b
-          ><a :href="'tel:' + contacts[3]">{{ contacts[3] }}</a></b
+          ><a :href="'tel:+420739418147'">+420 739 418 147</a></b
         >
       </p>
       <br />
       <a href="mailto:petra.sedlackova@skolavdf.cz" class="email"
         >petra.sedlackova@skolavdf.cz</a
+      >
+      <a href="mailto:hotelrecepce@skolavdf.cz" class="email"
+        >hotelrecepce@skolavdf.cz</a
       >
     </div>
     <div class="footer__copyrights">

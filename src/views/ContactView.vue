@@ -3,45 +3,12 @@ import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 import MapComponent from "@/components/MapComponent.vue";
 
-async function getData() {
-  let data = await fetch("http://localhost/vcvdf/server.php");
-  let result = await data.json();
-
-  let headers = [];
-
-  for (let key in result) {
-    headers.push(key);
-  }
-
-  let zodpovednaOsoba = result[headers[3]];
-  let contacts = [
-    result[headers[4]][0],
-    result[headers[5]][0],
-    result[headers[6]][0],
-    result[headers[7]][0],
-  ];
-
-  return [zodpovednaOsoba, contacts];
-}
-
 export default {
   name: "ContactView",
   components: {
     HeroStaticComponent,
     HeadingComponent,
     MapComponent,
-  },
-  data() {
-    return {
-      zodpovednaOsoba: [],
-      contacts: [],
-    };
-  },
-  mounted() {
-    getData().then((data) => {
-      this.zodpovednaOsoba = data[0];
-      this.contacts = data[1];
-    });
   },
 };
 </script>
@@ -56,23 +23,28 @@ export default {
   <div class="basic__text">
     <HeadingComponent text="Adresa Vzdělávacího střediska" color="orange" />
     <p>Karlova 3317, 407 47 Varnsdorf</p>
-    <p>zodpovědná osoba: {{ zodpovednaOsoba[0] }}</p>
+    <p>zodpovědná osoba: Petra Sedláčková</p>
     <p>
-      e-mail:
-      <a :href="'mailto:' + zodpovednaOsoba[1]">{{ zodpovednaOsoba[1] }}</a>
+      Email:
+      <a :href="'mailto:petra.sedlackova@skolavdf.cz'">petra.sedlackova@skolavdf.cz</a>
     </p>
+    <p>
+      Email recepce:
+      <a :href="'mailto:hotelrecepce@skolavdf.cz'">hotelrecepce@skolavdf.cz</a>
+    </p>
+    
   </div>
   <MapComponent :header="false" />
   <HeadingComponent text="Telefonní Čísla" color="orange" />
   <div class="basic__text">
     <p>
-      <b>Kancelář</b> - <a :href="'tel:' + contacts[2]">{{ contacts[2] }}</a>
+      <b>Kancelář</b> - <a :href="'tel:+420739418147'">+420 739 418 147</a>
     </p>
     <p>
-      <b>Recepce</b> - <a :href="'tel:' + contacts[0]">{{ contacts[0] }}</a>
+      <b>Recepce</b> - <a :href="'tel:+420775475549'">+420 775 475 549</a>
     </p>
     <p>
-      <b>Pevná</b> - <a :href="'tel:' + contacts[1]">{{ contacts[1] }}</a>
+      <b>Pevná</b> - <a :href="'tel:+420739096172'">+420 739 096 172</a>
     </p>
   </div>
   <HeadingComponent text="Fakturační adresa" color="orange" />

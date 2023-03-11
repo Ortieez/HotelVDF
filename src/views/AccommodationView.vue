@@ -2,36 +2,11 @@
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 
-async function getData() {
-  let data = await fetch("http://localhost/vcvdf/server.php");
-  let result = await data.json();
-
-  let headers = [];
-
-  for (let key in result) {
-    headers.push(key);
-  }
-
-  let dataHere = result[headers[0]];
-
-  return dataHere;
-}
-
 export default {
   name: "AccommodationView",
   components: {
     HeroStaticComponent,
     HeadingComponent,
-  },
-  data() {
-    return {
-      dataHere: [],
-    };
-  },
-  mounted() {
-    getData().then((data) => {
-      this.dataHere = data;
-    });
   },
 };
 </script>
@@ -39,29 +14,27 @@ export default {
 <template>
   <HeroStaticComponent
     title="Ubytování"
-    source="@/assets/hero/VSubytování02.jpg"
+    source="@/assets/hero/VSubytování02.png"
     color="orange"
   />
   <div class="basic__text">
     <p>
-      Ubytování ve <b>12</b> dvoulůžkových pokojích s vlastním sociálním
-      zařízením a připojením k internetu (WI-FI).
+      Ubytovací zařízení je umístěno v klidné části města, nedaleko státní hranice. Místo, ze kterého
+      můžete pořádat výlety jak do oblasti Českého Švýcarska, tak do okolí v Sasku, nabízí nepřeberné
+      možnosti sportovního i turistického vyžití, perfektní cyklostezky, aquaparky, památky a další
+      zajímavosti.
     </p>
     <p>
-      Ubytovací zařízení je umístěno v <b>klidné</b> části města ve výhodné
-      poloze blízko státní hranice, která je vhodná pro výlety jak do oblasti
-      <b>Českého Švýcarska</b>, tak do okolí v Sasku, které nabízí nepřeberné
-      možnosti sportovního i turistického vyžití, perfektní cyklostezky,
-      aquaparky, památky a <b>další zajímavosti</b>.
+      Poskytujeme ubytování ve 12 dvoulůžkových pokojích s vlastním sociálním zařízením, malou
+      ledničkou, fénem a připojením k internetu (WI-FI).
     </p>
   </div>
   <HeadingComponent text="Cena ubytování na osobu" color="orange" />
   <div class="basic__text">
-    <p>Noc - {{ dataHere[0] }},- Kč <b>bez snídaně</b></p>
-    <p>Noc - {{ dataHere[1] }},- Kč <b>bez snídaně</b></p>
+    <p>Noc - 570 Kč <b>bez snídaně</b></p>
+    <p>Noc - 690 Kč <b>se snídaní</b></p>
     <p class="center">
-      Slevy individuální - skupiny,<br />
-      dlouhodobé pobyty.
+      Domácí mazlíčky ubytováváme se svolením za 100 Kč/noc.
     </p>
   </div>
 </template>

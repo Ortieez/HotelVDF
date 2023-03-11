@@ -63,7 +63,7 @@ export default {
         <RouterLink class="link" to="/restaurace">Více informací</RouterLink>
       </div>
       <img
-        src="@/assets/hero/restaurace.jpg"
+        src="@/assets/hero/VSrestaurace01.jpg"
         alt="VOS, SPŠ a SOŠ Varnsdorf, p.o."
       />
     </swiper-slide>

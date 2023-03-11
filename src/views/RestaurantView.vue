@@ -2,36 +2,11 @@
 import HeroStaticComponent from "@/components/HeroStaticComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 
-async function getData() {
-  let data = await fetch("http://localhost/vcvdf/server.php");
-  let result = await data.json();
-
-  let headers = [];
-
-  for (let key in result) {
-    headers.push(key);
-  }
-
-  let dataHere = result[headers[1]];
-
-  return dataHere;
-}
-
 export default {
   name: "RestaurantView",
   components: {
     HeroStaticComponent,
     HeadingComponent,
-  },
-  data() {
-    return {
-      dataHere: [],
-    };
-  },
-  mounted() {
-    getData().then((data) => {
-      this.dataHere = data;
-    });
   },
 };
 </script>
@@ -44,14 +19,14 @@ export default {
   />
   <div class="basic__text">
     <p>
-      V <b>moderním</b> a příjemném prostředí restaurace vzdělávacího střediska
-      nabízíme <b>denní polední</b> menu, možnost pořádání malých společenských
-      akcí, setkání, jednání, rautů či svateb. Restaurace nabízí v letním období
-      <b>venkovní posezení</b>.
+      V moderním a příjemném prostředí restaurace Vzdělávacího střediska nabízíme denní polední menu.
+      Restaurace nabízí v letním období venkovní posezení. Na požádání připravujeme rautové občerstvení
+      s sebou.
     </p>
   </div>
   <HeadingComponent text="Cena Menu" color="green" />
   <div class="basic__text">
-    <p class="center">{{ dataHere[0] }},- Kč (<b>včetně polévky</b>)</p>
+    <p>Polévka - 30 Kč</p>
+    <p>Hlavní jídlo - 120 Kč</p>
   </div>
 </template>

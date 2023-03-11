@@ -47,9 +47,9 @@ function changeMenuState() {
         <RouterLink to="/fotogalerie" v-on:click="changeMenuState"
           >Fotogalerie</RouterLink
         >
-        <RouterLink to="/upload" v-on:click="changeMenuState"
+        <!-- <RouterLink to="/upload" v-on:click="changeMenuState"
           >Nahrání Souborů</RouterLink
-        >
+        > -->
       </div>
     </header>
   </div>
