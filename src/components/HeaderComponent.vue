@@ -22,7 +22,7 @@ function changeMenuState() {
           src="@/assets/logo.svg"
           alt="Logo VOS, SPŠ a SOŠ Školy Varnsdorf"
         />
-        <h1 id="headerText">VOŠ, SPŠ a SOŠ, <br />Varnsdorf, p,o.</h1>
+        <h1 id="headerText">VOŠ, SPŠ a SOŠ, <br />Varnsdorf, p.o.</h1>
       </div>
       <div id="menuHamburger" class="container" v-on:click="changeMenuState">
         <div class="bar1 bar"></div>
