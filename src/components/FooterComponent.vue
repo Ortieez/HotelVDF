@@ -33,6 +33,7 @@ export default {
       <a href="mailto:petra.sedlackova@skolavdf.cz" class="email"
         >petra.sedlackova@skolavdf.cz</a
       >
+      <br />
       <a href="mailto:hotelrecepce@skolavdf.cz" class="email"
         >hotelrecepce@skolavdf.cz</a
       >
