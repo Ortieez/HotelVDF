@@ -52,7 +52,7 @@ export default {
         <RouterLink class="link" to="/ubytovani">Více informací</RouterLink>
       </div>
       <img
-        src="@/assets/hero/ubytování.jpg"
+        src="@/assets/hero/ubytování.webp"
         alt="VOS, SPŠ a SOŠ Varnsdorf, p.o."
       />
     </swiper-slide>
@@ -63,7 +63,7 @@ export default {
         <RouterLink class="link" to="/restaurace">Více informací</RouterLink>
       </div>
       <img
-        src="@/assets/hero/VSrestaurace01.jpg"
+        src="@/assets/hero/VSrestaurace01.webp"
         alt="VOS, SPŠ a SOŠ Varnsdorf, p.o."
       />
     </swiper-slide>
@@ -74,7 +74,7 @@ export default {
         <RouterLink class="link" to="/pronajem">Více informací</RouterLink>
       </div>
       <img
-        src="@/assets/hero/pronajem.jpg"
+        src="@/assets/hero/pronajem.webp"
         alt="VOS, SPŠ a SOŠ Varnsdorf, p.o."
       />
     </swiper-slide>

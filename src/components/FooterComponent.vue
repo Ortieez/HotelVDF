@@ -7,8 +7,8 @@ export default {
 <template>
   <footer class="footer">
     <div class="footer__head">
-      <p>VOŠ, SPŠ a SOŠ , Varnsdorf, p,o.</p>
-      <p>Karlova 3317, 407 47</p>
+      <p>Vzdělávací středisko při VOŠ, SPŠ a SOŠ , Varnsdorf, p.o.</p>
+      <p>Karlova 3317, 407 47 Varnsdorf</p>
     </div>
     <div class="footer__contacts">
       <p>
@@ -33,7 +33,7 @@ export default {
       <a href="mailto:petra.sedlackova@skolavdf.cz" class="email"
         >petra.sedlackova@skolavdf.cz</a
       >
-      <br />
+      &nbsp;
       <a href="mailto:hotelrecepce@skolavdf.cz" class="email"
         >hotelrecepce@skolavdf.cz</a
       >

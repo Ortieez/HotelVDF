@@ -16,7 +16,7 @@ export default {
 <template>
   <HeroStaticComponent
     title="Kontakty"
-    source="@/assets/hero/kontakty.jpg"
+    source="@/assets/hero/kontakty.webp"
     color="orange"
     :poskytujeme="false"
   />
@@ -44,15 +44,14 @@ export default {
       <b>Recepce</b> - <a :href="'tel:+420775475549'">+420 775 475 549</a>
     </p>
     <p>
-      <b>Pevná</b> - <a :href="'tel:+420739096172'">+420 739 096 172</a>
+      <b>Restaurace</b> - <a :href="'tel:+420739096172'">+420 739 096 172</a>
     </p>
   </div>
   <HeadingComponent text="Fakturační adresa" color="orange" />
   <div class="basic__text">
     <p class="center">
-      Vyšší odborná škola, Střední průmyslová škola a Střední odborná škola
-      služeb a cestovního ruchu, Varnsdorf, Bratislavská 2166, příspěvková
-      organizace
+      Vyšší odborná škola, Střední průmyslová škola a Střední odborná škola,
+      Varnsdorf, příspěvková organizace
     </p>
     <p>Bratislavská 2166, 407 47 Varnsdorf</p>
     <p>IČ: <b>18383874</b></p>

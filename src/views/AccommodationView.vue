@@ -14,7 +14,7 @@ export default {
 <template>
   <HeroStaticComponent
     title="Ubytování"
-    source="@/assets/hero/VSubytování02.png"
+    source="@/assets/hero/VSubytování02.webp"
     color="orange"
   />
   <div class="basic__text">

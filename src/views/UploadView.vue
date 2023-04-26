@@ -76,7 +76,7 @@ export default {
 <template>
   <HeroStaticComponent
     title="Nahrání Souborů"
-    source="@/assets/hero/upload.jpg"
+    source="@/assets/hero/upload.webp"
     color="orange"
     :poskytujeme="false"
   />

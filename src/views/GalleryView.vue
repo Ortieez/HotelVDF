@@ -7,15 +7,14 @@ import lgZoom from "lightgallery/plugins/zoom";
 
 import styles from "lightgallery/scss/lightgallery.scss";
 
-import FirstImage from "@/assets/photogallery/20160720_100057.jpg";
-import SecondImage from "@/assets/photogallery/IMG_20180829_132832.jpg";
-import ThirdImage from "@/assets/photogallery/IMG_20180829_132941.jpg";
-import FourthImage from "@/assets/photogallery/IMG-20170530-WA0002.jpg";
-import FifthImage from "@/assets/photogallery/VS-PCučebna01.jpg";
-import SixthImage from "@/assets/photogallery/VS-posluchárna01.jpg";
-import SeventhImage from "@/assets/photogallery/VS-posluchárna03.jpg";
-import EighthImage from "@/assets/photogallery/VS-raut03.jpg";
-import NinthImage from "@/assets/photogallery/VS-recepce.jpg";
+import FirstImage from "@/assets/photogallery/restaurace.webp";
+import SecondImage from "@/assets/photogallery/VSrestaurace01.webp";
+import ThirdImage from "@/assets/photogallery/VSubytování01.webp";
+import FourthImage from "@/assets/photogallery/VSubytování02.webp";
+import FifthImage from "@/assets/photogallery/VS-PCučebna01.webp";
+import SixthImage from "@/assets/photogallery/VS-posluchárna01.webp";
+import SeventhImage from "@/assets/photogallery/VS-posluchárna03.webp";
+import EighthImage from "@/assets/photogallery/VS-raut03.webp";
 
 export default {
   components: {
@@ -33,7 +32,6 @@ export default {
       SixthImage,
       SeventhImage,
       EighthImage,
-      NinthImage,
     ],
   }),
 };
@@ -42,7 +40,7 @@ export default {
 <template>
   <HeroStaticComponent
     title="Fotogalerie"
-    source="@/assets/hero/fotogalerie.jpg"
+    source="@/assets/hero/fotogalerie.webp"
     color="orange"
     :poskytujeme="false"
   />
@@ -71,9 +69,6 @@ export default {
       </a>
       <a :href="Images[7]">
         <img alt=" " :src="Images[7]" />
-      </a>
-      <a :href="Images[8]">
-        <img alt=" " :src="Images[8]" />
       </a>
     </lightgallery>
   </center>

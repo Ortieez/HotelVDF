@@ -14,7 +14,7 @@ export default {
 <template>
   <HeroStaticComponent
     title="Restaurace"
-    source="@/assets/hero/VSrestaurace01.jpg"
+    source="@/assets/hero/VSrestaurace01.webp"
     color="green"
   />
   <div class="basic__text">

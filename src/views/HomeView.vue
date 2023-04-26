@@ -7,11 +7,11 @@ import MapComponent from "@/components/MapComponent.vue";
   <div class="home__container">
     <HeroComponent class="hero" />
     <div class="home__box">
-      <p>Vítáme Vás na stránkách našeho vzdělávacího střediska</p>
+      <p>Vítáme Vás na stránkách našeho Vzdělávacího střediska</p>
     </div>
     <div class="home__long-text">
       <p>
-        Vyšší odborné školy, Střední průmyslové školy a Střední odborné školy ve Varnsdorfu se věnuje
+        Vyšší odborné školy, Střední průmyslové školy a Střední odborné školy ve Varnsdorfu, které se věnuje
         především oboru gastronomie a hotelnictví. Nabízíme Vám kvalitní služby v daném oboru, které
         realizujeme v rámci vzdělávání našich žáků. Naší předností je neustálé zkvalitňování a vylepšování
         námi nabízených služeb. Důkazem je stále vzrůstající počet spokojených zákazníků.

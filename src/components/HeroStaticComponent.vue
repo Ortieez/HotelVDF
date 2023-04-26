@@ -28,32 +28,32 @@ export default {
     <div class="heroSection">
       <img
         v-if="title == 'Ubytování' || title == 'Nahrání Souborů'"
-        src="@/assets/hero/VSubytování02.png"
+        src="@/assets/hero/VSubytování02.webp"
         alt="Obrázek pro momentální sekci"
       />
       <img
         v-if="title == 'Kontakty'"
-        src="@/assets/hero/kontakty.jpg"
+        src="@/assets/hero/kontakty.webp"
         alt="Obrázek pro momentální sekci"
       />
       <img
         v-if="title == 'Fotogalerie'"
-        src="@/assets/hero/fotogalerie.jpg"
+        src="@/assets/hero/fotogalerie.webp"
         alt="Obrázek pro momentální sekci"
       />
       <img
         v-if="title == 'Stránka nenalezena'"
-        src="@/assets/hero/nenalezeno.jpg"
+        src="@/assets/hero/nenalezeno.webp"
         alt="Obrázek pro momentální sekci"
       />
       <img
         v-if="title == 'Pronájemprostor'"
-        src="@/assets/hero/pronajem.jpg"
+        src="@/assets/hero/pronajem.webp"
         alt="Obrázek pro momentální sekci"
       />
       <img
         v-if="title == 'Restaurace'"
-        src="@/assets/hero/VSrestaurace01.jpg"
+        src="@/assets/hero/VSrestaurace01.webp"
         alt="Obrázek pro momentální sekci"
       />
       <div class="heroText">

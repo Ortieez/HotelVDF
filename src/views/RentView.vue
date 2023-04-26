@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <HeroStaticComponent title="Pronájemprostor" source="@/assets/hero/pronajem.jpg" color="blue" />
+  <HeroStaticComponent title="Pronájemprostor" source="@/assets/hero/pronajem.webp" color="blue" />
   <div class="basic__text">
     <p>
       Nabízíme možnost pořádání seminářů, rekvalifikací, dalšího profesního vzdělávání, tréninkových
